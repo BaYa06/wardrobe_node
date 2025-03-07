@@ -1,0 +1,850 @@
+/* ========================================================================== */
+/* Общие стили */
+/* ========================================================================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: rgb(205,42,200);
+    height: 100%;
+    background: -moz-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    background: linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cd2ac8",endColorstr="#7c33f6",GradientType=1);
+    padding-bottom: 20px;
+}
+
+
+
+
+
+/* ========================================================================== */
+/* Левый боковой блок (Погода) */
+/* ========================================================================== */
+
+/* Основной контейнер левого сайдбара */
+.header {
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to bottom, #1A213E, #39387E, #39387E, #8D37A3);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 20; /* Ошибка? Возможно, должно быть left: 0 */
+    transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
+    border-radius: 0 20px 20px 0;
+    z-index: 1000;
+}
+
+
+/* Контейнер контента внутри сайдбара */
+.header-content {
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+}
+
+/* Заголовок внутри контента (используется редко) */
+.header-content h2 {
+    margin: 0;
+    font-size: 10px;
+}
+
+/* Основной блок с погодной информацией */
+.left_block_main_content {
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+/* Город */
+.city h1 {
+    font-size: 3rem;
+}
+
+/* Температура */
+.degree h1 {
+    font-size: 3rem;
+}
+
+/* Контейнер для иконки погоды и температуры */
+.icon_degree h1 {
+    margin: 20px;
+}
+
+/* Иконка погоды */
+.img__container {
+    width: 100%;
+    height: 30%;
+    transition: all 0.85s ease;
+}
+
+.img__container img {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    padding-right: 20px;
+}
+
+/* Прогноз погоды */
+.prediction h6 {
+    font-size: 1.5rem;
+}
+
+/* Дополнительная информация о погоде */
+.info {
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info h6 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    color: white;
+}
+
+/* Контейнер прогноза на 7 дней (скрыт по умолчанию) */
+.days_7_container {
+    display: none;
+}
+
+/* Стили для открытого состояния сайдбара */
+.header.open {
+    width: 70%;
+    background-color: rgba(71, 18, 136, 0.9);
+}
+
+.header.open .img__container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+}
+
+.header.open .img__container img {
+    transform: scale(1.5);
+    width: 100px;
+    margin: 50px 0;
+    height: auto;
+}
+
+.header.open .date {
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.85s ease;
+}
+
+.header.open .icon_degree {
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    transition: all 0.85s ease;
+}
+
+.header.open .icon_degree .degree h1 {
+    font-size: 5rem;
+}
+
+.header.open .prediction {
+    display: block;
+}
+
+.header.open .prediction h6 {
+    font-size: 2rem;
+}
+
+.header.open .info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.header.open .info h6 {
+    padding: 5px 30px;
+}
+
+.header.open .left_block_main_content {
+    margin-top: 50px;
+}
+
+.header.open .days_7_container {
+    margin: 50px 0;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header.open .days_7_container .day {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 100px;
+}
+
+.header.open .days_7_container .day p {
+    margin: 0;
+}
+
+.header.open .days_7_container .day .degree_min_max {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+.header.open .days_7_container .day .degree_min_max .h6_bigger {
+    font-size: 20px;
+}
+
+.header.open .days_7_container .day img {
+    width: 80%;
+}
+
+
+
+
+
+/* ========================================================================== */
+/* Правый боковой блок (Меню) */
+/* ========================================================================== */
+
+/* Основной контейнер правого сайдбара */
+.header_right {
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to bottom, #1A213E, #39387E, #39387E, #8D37A3);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 20; /* Ошибка? Возможно, должно быть right: 0 */
+    transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
+    border-radius: 20px 0 0 20px;
+    z-index: 1000;
+}
+
+.close_button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    display: none;
+}
+
+.open_button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.div_close_button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 50%;
+    text-align: right;
+}
+/* Стили для открытого состояния */
+
+
+
+.header_right.open {
+    width: 70%;
+    background-color: rgba(71, 18, 136, 0.9);
+}
+
+.header_right.open  .div_close_button{
+    text-align: right;
+    transition: all 0.85s ease;
+}
+
+.header_right.open  .div_close_button .open_button{
+    display: none;
+}
+
+.header_right.open  .div_close_button .close_button{
+    display: block;
+}
+
+
+.header_right_content {
+    width: 100%;
+    padding: 20px;
+}
+
+.welcome_text {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.welcome_text h6 {
+    font-size: 1.5rem;
+}
+
+/* right main content */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/* button */
+.adding_button {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+/* main content */
+.cards {
+    padding: 0 50px;
+    display: flex;
+    overflow-x: auto; /* Включает горизонтальную прокрутку */
+    scroll-behavior: smooth; /* Делает прокрутку плавной */
+}
+.cards::-webkit-scrollbar {
+    display: none; /* Скрывает горизонтальную полосу прокрутки */
+}
+
+.row {
+    margin: 10px 0;
+}
+
+.cards .card {
+    width: 120px;
+    height: 112px;
+    margin: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+}
+
+.cards .card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.cards .card img:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+}
+
+.right_main_content .row .add_button{
+    display: none;
+}
+
+.header_right.open .right_main_content .row .add_button{
+    display: block;
+}
+
+.cards .card .delete_icon {
+    display: none;
+}
+
+.card.delete .delete_icon {
+    display: block;
+    background-color: #8D37A3;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    border-radius: 15%;
+}
+
+.card.delete .delete_icon ion-icon {
+    text-align: center;
+    align-items: center;
+    font-size: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.card.delete img {
+    display: none;
+}
+
+
+
+
+/* ========================================================================== */
+/* Основной контент */
+/* ========================================================================== */
+
+/* Контейнер основного контента */
+.main-content {
+    padding: 20px 20px 20px;
+    height: 100%;
+}
+
+/* Блок с рекомендациями */
+.advice {
+    text-align: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.advice_cont {
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.advice_cont p {
+    display: inline-flex;
+    margin: 0;
+    padding: 5px 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+/* Контейнер для каруселей */
+.carousels {
+    display: block;
+    margin: auto auto;
+}
+
+/* Стили каруселей */
+.carousel {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.carousel-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Кнопка "Pick Up" */
+.animated-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #1f387e;
+    box-shadow: 0 0 0 2px #ffffff;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    margin: 0 auto;
+}
+
+.animated-button svg {
+    position: absolute;
+    width: 24px;
+    fill: #1f387e;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+    right: 16px;
+}
+
+.animated-button .arr-2 {
+    left: -25%;
+}
+
+.animated-button .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #c5e5e4;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+    right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+    left: 16px;
+}
+
+.animated-button:hover .text {
+    transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+    fill: #1f387e;
+}
+
+.animated-button:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+}
+
+
+
+
+
+/* ========================================================================== */
+/* Адаптивность (для экранов до 768px) */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Левый сайдбар (погода) */
+    .header {
+        width: 100%;
+        height: 8%;
+        border-radius: 0 0 30px 30px;
+        transition: height 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
+    }
+
+    .header.open {
+        height: 90%;
+        width: 100%;
+        border-radius: 0 0 50px 50px;
+        background-color: rgba(71, 18, 136, 0.9);
+    }
+
+    /* Скрываем правый сайдбар на мобильных устройствах */
+
+    /* Основной контент */
+    .main-content {
+        padding: 100px 20px 20px;
+    }
+
+    .carousel2 {
+        display: none;
+    }
+
+    .advice_cont {
+        width: 100%;
+    }
+
+    /* Погода в закрытом состоянии */
+    .header-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .date .today {
+        display: none;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .city {
+        display: none;
+    }
+
+    .prediction {
+        display: none;
+    }
+
+    .info {
+        display: none;
+    }
+
+    .days_7_container {
+        display: none;
+    }
+
+    .icon_degree {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+    }
+
+    .icon_degree img {
+        width: 70px;
+        height: auto;
+        padding: 0;
+    }
+
+    .icon_degree .degree h1 {
+        font-size: 30px;
+    }
+
+    .left_block_main_content {
+        margin: 0;
+    }
+
+    /* Погода в открытом состоянии */
+    .header.open .img__container img {
+        transform: scale(1.5);
+        width: 100px;
+        margin: 50px 0;
+        height: auto;
+    }
+
+    .header.open .header-content {
+        display: block;
+    }
+
+    .header.open hr {
+        display: block;
+    }
+
+    .header.open .date {
+        display: flex;
+        justify-content: space-between;
+        transition: all 0.85s ease;
+    }
+
+    .header.open .date h6 {
+        font-size: 22px;
+    }
+
+    .header.open .date .today {
+        display: block;
+    }
+
+    .header.open .img__container {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        margin-left: 10px;
+    }
+
+    .header.open .icon_degree {
+        display: flex;
+        height: 150px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        transition: all 0.85s ease;
+    }
+
+    .header.open .icon_degree .degree h1 {
+        font-size: 5rem;
+    }
+
+    .header.open .prediction {
+        display: block;
+    }
+
+    .header.open .prediction h6 {
+        font-size: 2rem;
+    }
+
+    .header.open .info {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .header.open .info h6 {
+        padding: 5px 5px;
+    }
+
+    .header.open .left_block_main_content {
+        margin-top: 50px;
+    }
+
+    .header.open .days_7_container {
+        margin: 50px 0;
+        height: auto; /* Автоматическая высота для гибкости */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки вместо 4 */
+        gap: 15px; /* Расстояние между блоками */
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .header.open .days_7_container .day {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        color: white;
+        width: 100px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .header.open .days_7_container .day:nth-child(n+5) {
+        grid-column: span 1; /* Последние элементы занимают по 1 колонке */
+    }
+
+    .header.open .days_7_container .day p {
+        margin: 0;
+    }
+
+    .header.open .days_7_container #last_day {
+        display: none;
+    }
+
+    .header.open .days_7_container .day .degree_min_max {
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+    }
+
+    .header.open .days_7_container .day .degree_min_max .h6_bigger {
+        font-size: 18px;
+    }
+
+    .header.open .days_7_container .day .degree_min_max h6 {
+        font-size: 15px;
+    }
+
+    .header.open .days_7_container .day img {
+        width: 80%;
+    }
+
+    /* Основной контент на мобильных */
+    .main-content {
+        padding-top: 70px;
+    }
+
+
+
+    /* wardrob page */
+
+    .header_right {
+        width: 0;
+        height: 100%;
+        border-radius: 0 0 0 0;
+        transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
+    }
+
+    .header_right .welcome_text {
+        display: none;
+    }
+
+    .header_right .right_main_content {
+        display: none;
+    }
+
+    .open_right_block_button {
+        display: block;
+    }
+
+    .open_right_block_button {
+        display: flex;
+        justify-content: flex-end; /* Перемещает кнопку вправо */
+        align-items: center; /* Выравнивает по центру по вертикали */
+        width: 100%; /* Занимает всю ширину родительского контейнера */
+    }
+    
+    .open_right_block_button button {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        color: white;
+    }    
+
+    .header_right.open {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(71, 18, 136, 0.9);
+    }
+
+    .header_right.open .welcome_text {
+        display: block;
+    }
+
+    .header_right.open .right_main_content {
+        display: block;
+    }
+
+}

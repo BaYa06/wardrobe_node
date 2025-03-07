@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Указываем кодировку UTF-8 для корректного отображения русского текста -->
+    <meta charset="UTF-8">
+    <!-- Адаптивность сайта для разных устройств -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Заголовок страницы, отображается во вкладке браузера -->
+    <title>Анимация выезжающего прямоугольника</title>
+    <!-- Подключаем Materialize CSS для готовых стилей и компонентов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Подключаем пользовательские стили из файла main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Левый сайдбар (погода). Фиолетовый прямоугольник с анимацией открытия -->
+    <div class="header" id="header">
+        <!-- Контейнер для контента, который появляется при открытии сайдбара -->
+        <div class="header-content">
+            <!-- Блок с датой -->
+            <div class="date">
+                <!-- Текст "Сегодня" для текущего дня -->
+                <h6 class="today">Today</h6>
+                <!-- Конкретная дата, можно сделать динамической через JS -->
+                <h6>December 31</h6>
+            </div>
+            <!-- Разделительная линия для визуального отделения секций -->
+            <hr>
+            <!-- Основной контент левого сайдбара -->
+            <div class="left_block_main_content">
+                <!-- Блок с названием города -->
+                <div class="city">
+                    <h1>Bishkek</h1> <!-- Название города, можно заменить через JS -->
+                </div>
+                <!-- Блок с иконкой погоды и температурой -->
+                <div class="icon_degree">
+                    <!-- Контейнер для иконки погоды -->
+                    <div class="img__container">
+                        <!-- Изображение иконки погоды, путь к файлу можно обновлять -->
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                    </div>
+                    <!-- Контейнер для текущей температуры -->
+                    <div class="degree">
+                        <h1>-2°C</h1> <!-- Температура, обновляется через API или JS -->
+                    </div>
+                </div>
+                <!-- Прогноз погоды (например, "Частично солнечно") -->
+                <div class="prediction">
+                    <h6>Partly Sunny</h6>
+                </div>
+                <!-- Дополнительная информация о погоде -->
+                <div class="info">
+                    <h6>Wind: 2 km/h</h6> <!-- Скорость ветра -->
+                    <h6>Visibility: 5 km</h6> <!-- Видимость -->
+                    <h6>Feels Like: -3°C</h6> <!-- Ощущаемая температура -->
+                </div>
+                <!-- Контейнер для прогноза на 7 дней -->
+                <div class="days_7_container">
+                    <!-- Один день из прогноза (повторяется 7 раз для недели) -->
+                    <div class="day">
+                        <h6>Mon 21</h6> <!-- День недели и дата -->
+                        <!-- Иконка погоды для этого дня -->
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                        <!-- Минимальная и максимальная температура -->
+                        <div class="degree_min_max">
+                            <h6 class="h6_bigger">5°C</h6> <!-- Максимальная температура -->
+                            <h6>-2°C</h6> <!-- Минимальная температура -->
+                        </div>
+                        <p>Sunny</p> <!-- Описание погоды -->
+                    </div>
+                    <!-- Пример ещё одного дня (всего 7 одинаковых блоков) -->
+                    <div class="day">
+                        <h6>Mon 21</h6>
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                        <div class="degree_min_max">
+                            <h6 class="h6_bigger">5°C</h6>
+                            <h6>-2°C</h6>
+                        </div>
+                        <p>Sunny</p>
+                    </div>
+                    <!-- Повторение для остальных дней -->
+                    <div class="day">
+                        <h6>Mon 21</h6>
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                        <div class="degree_min_max">
+                            <h6 class="h6_bigger">5°C</h6>
+                            <h6>-2°C</h6>
+                        </div>
+                        <p>Sunny</p>
+                    </div>
+                    <div class="day">
+                        <h6>Mon 21</h6>
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                        <div class="degree_min_max">
+                            <h6 class="h6_bigger">5°C</h6>
+                            <h6>-2°C</h6>
+                        </div>
+                        <p>Sunny</p>
+                    </div>
+                    <div class="day">
+                        <h6>Mon 21</h6>
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                        <div class="degree_min_max">
+                            <h6 class="h6_bigger">5°C</h6>
+                            <h6>-2°C</h6>
+                        </div>
+                        <p>Sunny</p>
+                    </div>
+                    <div class="day">
+                        <h6>Mon 21</h6>
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                        <div class="degree_min_max">
+                            <h6 class="h6_bigger">5°C</h6>
+                            <h6>-2°C</h6>
+                        </div>
+                        <p>Sunny</p>
+                    </div>
+                    <!-- Последний день с уникальным id для стилизации -->
+                    <div class="day" id="last_day">
+                        <h6>Mon 21</h6>
+                        <img src="/assets/weather-new.png" alt="weather icon">
+                        <div class="degree_min_max">
+                            <h6 class="h6_bigger">5°C</h6>
+                            <h6>-2°C</h6>
+                        </div>
+                        <p>Sunny</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Правый сайдбар (меню). Фиолетовый прямоугольник с анимацией -->
+    <div class="header_right" id="header_right">
+        <div class="header_right_content">
+            <div class="div_close_button" id="close_button">
+                <button class="close_button">-></button>
+                <button class="open_button"><-</button>
+            </div>
+            <div class="welcome_text">
+                <h6 id="Name_of_user">MY Wardrobe</h6>
+            </div>
+            <hr>
+            <div class="right_main_content">
+                <div class="row">
+                    <div class="add_button">
+                        <button class="adding_button">+</button>
+                    </div>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/cap.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/cap.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/cap.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/cap.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/cap.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/cap.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="add_button">
+                        <button class="adding_button">+</button>
+                    </div>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/t-shirt.jpeg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/t-shirt.jpeg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/t-shirt.jpeg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/t-shirt.jpeg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/t-shirt.jpeg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/t-shirt.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="add_button">
+                        <button class="adding_button">+</button>
+                    </div>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shorts.webp" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shorts.webp" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shorts.webp" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shorts.webp" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shorts.webp" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shorts.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="add_button">
+                        <button class="adding_button">+</button>
+                    </div>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shoes.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shoes.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shoes.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shoes.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shoes.jpg" alt="">
+                        </div>
+                        <div class="card">
+                            <div class="delete_icon">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </div>
+                            <img src="assets/shoes.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контент страницы -->
+    <div class="main-content">
+        <!-- Блок с советом по одежде -->
+        <div class="advice">
+            <div class="advice_cont">
+                <!-- Текст совета, ограничен 100 символами -->
+                <p>Сегодня -3°C, надевай теплую куртку, шапку, шарф и перчатки, чтобы не замерзнуть.</p>
+            </div>
+        </div>
+        
+        <!-- Контейнер для каруселей -->
+        <div class="carousels">
+            <!-- Первая карусель (верхняя одежда) -->
+            <div class="carousel carousel2">
+                <!-- Элемент карусели с изображением -->
+                <a class="carousel-item" href="#"><img src="assets/cap.jpg" alt="1-1"></a>
+                <a class="carousel-item" href="#"><img src="assets/cap.jpg" alt="1-2"></a>
+                <a class="carousel-item" href="#"><img src="assets/cap.jpg" alt="1-3"></a>
+            </div>
+        
+            <!-- Вторая карусель (обувь) -->
+            <div class="carousel carousel1">
+                <a class="carousel-item" href="#"><img src="assets/t-shirt.jpeg" alt="2-1"></a>
+                <a class="carousel-item" href="#"><img src="assets/t-shirt.jpeg" alt="2-2"></a>
+                <a class="carousel-item" href="#"><img src="assets/t-shirt.jpeg" alt="2-3"></a>
+            </div>
+
+            <!-- Третья карусель (аксессуары) -->
+            <div class="carousel carousel1">
+                <a class="carousel-item" href="#"><img src="assets/shorts.webp" alt="2-1"></a>
+                <a class="carousel-item" href="#"><img src="assets/shorts.webp" alt="2-2"></a>
+                <a class="carousel-item" href="#"><img src="assets/shorts.webp" alt="2-3"></a>
+            </div>
+
+            <!-- Четвёртая карусель (дополнительные элементы) -->
+            <div class="carousel carousel1">
+                <a class="carousel-item" href="#"><img src="assets/shoes.jpg" alt="2-1"></a>
+                <a class="carousel-item" href="#"><img src="assets/shoes.jpg" alt="2-2"></a>
+                <a class="carousel-item" href="#"><img src="assets/shoes.jpg" alt="2-3"></a>
+            </div>
+        </div>
+
+        <!-- Кнопка "Pick Up" с анимацией -->
+        <div class="button">
+            <button class="animated-button">
+                <!-- Стрелка влево (анимация при наведении) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                </svg>
+                <!-- Текст кнопки -->
+                <span class="text">Pick Up</span>
+                <!-- Круг для эффекта при наведении -->
+                <span class="circle"></span>
+                <!-- Стрелка вправо (анимация при наведении) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                </svg>
+              </button>
+        </div>
+        <div class="open_right_block_button" id="open_right_block_button">
+            <button><-</button>
+        </div>
+    </div>
+
+    <!-- Подключаем jQuery для работы с DOM и анимациями -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Подключаем Materialize JS для работы каруселей и других компонентов -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Подключаем пользовательский скрипт main.js -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
