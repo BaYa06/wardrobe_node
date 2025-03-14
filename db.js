@@ -1,8 +1,11 @@
 import Knex from 'knex';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Загружаем переменные из .env
 
 const db = Knex({
   client: 'pg', // используем PostgreSQL
-  connection: 'postgres://admin:admin@localhost/wardrobe_db' // строка подключения
+  connection: process.env.DB_CONNECTION,
 });
 
 // Функция для получения данных из таблицы students

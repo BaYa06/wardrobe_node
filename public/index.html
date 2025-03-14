@@ -130,6 +130,49 @@
         </div>
     </div>
 
+   <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="close-text">
+                <div class="text-add">
+                    <h2>Add New Clothes</h2>
+                </div>
+                <div id="closeModal" class="modal-close-button">
+                    <ion-icon class="modal-close-icon" name="close-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="input_choose_img">
+                <label for="file">Choose Image:</label>
+                <input type="file" id="fileInput" accept="image/*" class="file-input">
+            </div>
+        <div class="container_types">
+            <label for="clothesType">Type of Clothes:</label>
+            <div class="type-icon">
+                <input type="text" id="clothesType" list="list-clothes" placeholder="Select type of clothes">
+                <ion-icon id="clearClothes" class="input-clear-icon" name="close-outline"></ion-icon>
+            </div>
+            <datalist id="list-clothes">
+                <option value="Head">
+                <option value="Outerwear">
+                <option value="Underwear">
+                <option value="Shoes">
+            </datalist>
+            <label for="weatherType">Weather:</label>
+            <div class="type-icon">
+                <input type="text" id="weatherType" list="list-weather" placeholder="Select weather">
+                <ion-icon id="clearWeather" class="input-clear-icon" name="close-outline"></ion-icon>
+            </div>
+            <datalist id="list-weather">
+                <option value="Sunny">
+                <option value="Cloudy">
+                <option value="Snow">
+                <option value="Rainy">
+            </datalist>
+        </div>
+        <button id="submitModal" class="close-btn">Add</button>
+        </div>
+    </div>
+
     <!-- Правый сайдбар (меню). Фиолетовый прямоугольник с анимацией -->
     <div class="header_right" id="header_right">
         <div class="header_right_content">
@@ -144,7 +187,7 @@
             <div class="right_main_content">
                 <div class="row">
                     <div class="add_button">
-                        <button class="adding_button">+</button>
+                        <button id="openModal" class="adding_button">+</button>
                     </div>
                     <div class="cards">
                         <div class="card">
@@ -188,7 +231,7 @@
                 <hr>
                 <div class="row">
                     <div class="add_button">
-                        <button class="adding_button">+</button>
+                        <button id="openModal" class="adding_button">+</button>
                     </div>
                     <div class="cards">
                         <div class="card">
@@ -232,7 +275,7 @@
                 <hr>
                 <div class="row">
                     <div class="add_button">
-                        <button class="adding_button">+</button>
+                        <button id="openModal" class="adding_button">+</button>
                     </div>
                     <div class="cards">
                         <div class="card">
@@ -276,7 +319,7 @@
                 <hr>
                 <div class="row">
                     <div class="add_button">
-                        <button class="adding_button">+</button>
+                        <button id="openModal" class="adding_button">+</button>
                     </div>
                     <div class="cards">
                         <div class="card">

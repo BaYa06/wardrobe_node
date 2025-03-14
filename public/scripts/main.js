@@ -98,3 +98,79 @@ console.log('Username:', username);
 if (username) {
     document.getElementById('Name_of_user').textContent = username;
 }
+
+
+// Модальное окно
+const modal = document.getElementById('myModal');
+const openBtns = document.querySelectorAll('.adding_button'); // Получаем все кнопки
+const submitBtn = document.getElementById('submitModal');
+const clothesType = document.getElementById('clothesType');
+const weatherType = document.getElementById('weatherType');
+const closeBtn = document.getElementById('closeModal');
+const fileInput = document.getElementById('fileInput'); // Поле загрузки файла
+const clearClothesBtn = document.getElementById('clearClothes'); // Кнопка очистки clothesType
+const clearWeatherBtn = document.getElementById('clearWeather'); // Кнопка очистки weatherType
+
+// Функция для ограничения ввода
+const restrictInput = (input, datalistId) => {
+    const options = Array.from(document.getElementById(datalistId).options).map(opt => opt.value);
+
+    input.addEventListener('input', () => {
+        const value = input.value;
+        // Если значение не в списке, сбрасываем его
+        if (value && !options.includes(value)) {
+            input.value = '';
+        }
+    });
+
+    // Запрещаем ручной ввод через клавиатуру, но разрешаем выбор
+    input.addEventListener('keydown', (e) => {
+        // Разрешаем клавиши для навигации (стрелки, Tab)
+        if (['ArrowDown', 'ArrowUp', 'Tab', 'Enter'].includes(e.key)) return;
+        e.preventDefault();
+    });
+};
+
+// Применяем ограничение к обоим полям
+restrictInput(clothesType, 'list-clothes');
+restrictInput(weatherType, 'list-weather');
+
+// Функция для закрытия модального окна и очистки полей
+const closeModal = () => {
+    clothesType.value = '';
+    weatherType.value = '';
+    fileInput.value = ''; // Очистка загруженного файла
+    modal.classList.remove('show');
+};
+
+// Функции для очистки отдельных полей
+const clearInput = (input) => {
+    input.value = '';
+};
+
+// Открытие модального окна
+openBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        modal.classList.add('show');
+    });
+});
+
+// Закрытие модального окна при нажатии на кнопку "Закрыть"
+closeBtn.addEventListener('click', closeModal);
+
+// Закрытие модального окна при нажатии на кнопку "Отправить"
+submitBtn.addEventListener('click', closeModal);
+
+// Закрытие при клике вне окна
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Очистка полей по кнопке
+clearClothesBtn.addEventListener('click', () => clearInput(clothesType));
+clearWeatherBtn.addEventListener('click', () => clearInput(weatherType));
+
+
+
