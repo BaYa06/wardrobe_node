@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Подключаем пользовательские стили из файла main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <!-- Подключение Ionicons через CDN -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <!-- Левый сайдбар (погода). Фиолетовый прямоугольник с анимацией открытия -->
@@ -189,43 +192,8 @@
                     <div class="add_button">
                         <button id="openModal" class="adding_button">+</button>
                     </div>
-                    <div class="cards">
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/cap.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/cap.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/cap.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/cap.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/cap.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/cap.jpg" alt="">
-                        </div>
+                    <div class="cards wardrobe-cards" id="wardrobe-cards">
+                        
                     </div>
                 </div>
                 <hr>
@@ -233,43 +201,8 @@
                     <div class="add_button">
                         <button id="openModal" class="adding_button">+</button>
                     </div>
-                    <div class="cards">
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/t-shirt.jpeg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/t-shirt.jpeg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/t-shirt.jpeg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/t-shirt.jpeg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/t-shirt.jpeg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/t-shirt.jpeg" alt="">
-                        </div>
+                    <div class="cards wardrobe-cards" id="wardrobe-cards2">
+                        
                     </div>
                 </div>
                 <hr>
@@ -277,43 +210,8 @@
                     <div class="add_button">
                         <button id="openModal" class="adding_button">+</button>
                     </div>
-                    <div class="cards">
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shorts.webp" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shorts.webp" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shorts.webp" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shorts.webp" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shorts.webp" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shorts.webp" alt="">
-                        </div>
+                    <div class="cards wardrobe-cards" id="wardrobe-cards3">
+                        
                     </div>
                 </div>
                 <hr>
@@ -321,43 +219,8 @@
                     <div class="add_button">
                         <button id="openModal" class="adding_button">+</button>
                     </div>
-                    <div class="cards">
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shoes.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shoes.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shoes.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shoes.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shoes.jpg" alt="">
-                        </div>
-                        <div class="card">
-                            <div class="delete_icon">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                            <img src="assets/shoes.jpg" alt="">
-                        </div>
+                    <div class="cards wardrobe-cards" id="wardrobe-cards4">
+                        
                     </div>
                 </div>
             </div>
@@ -377,32 +240,24 @@
         <!-- Контейнер для каруселей -->
         <div class="carousels">
             <!-- Первая карусель (верхняя одежда) -->
-            <div class="carousel carousel2">
+            <div class="carousel carousel2" id="carousel1">
                 <!-- Элемент карусели с изображением -->
-                <a class="carousel-item" href="#"><img src="assets/cap.jpg" alt="1-1"></a>
-                <a class="carousel-item" href="#"><img src="assets/cap.jpg" alt="1-2"></a>
-                <a class="carousel-item" href="#"><img src="assets/cap.jpg" alt="1-3"></a>
+                
             </div>
         
             <!-- Вторая карусель (обувь) -->
-            <div class="carousel carousel1">
-                <a class="carousel-item" href="#"><img src="assets/t-shirt.jpeg" alt="2-1"></a>
-                <a class="carousel-item" href="#"><img src="assets/t-shirt.jpeg" alt="2-2"></a>
-                <a class="carousel-item" href="#"><img src="assets/t-shirt.jpeg" alt="2-3"></a>
+            <div class="carousel carousel1" id="carousel2">
+                
             </div>
 
             <!-- Третья карусель (аксессуары) -->
-            <div class="carousel carousel1">
-                <a class="carousel-item" href="#"><img src="assets/shorts.webp" alt="2-1"></a>
-                <a class="carousel-item" href="#"><img src="assets/shorts.webp" alt="2-2"></a>
-                <a class="carousel-item" href="#"><img src="assets/shorts.webp" alt="2-3"></a>
+            <div class="carousel carousel1" id="carousel3">
+                
             </div>
 
             <!-- Четвёртая карусель (дополнительные элементы) -->
-            <div class="carousel carousel1">
-                <a class="carousel-item" href="#"><img src="assets/shoes.jpg" alt="2-1"></a>
-                <a class="carousel-item" href="#"><img src="assets/shoes.jpg" alt="2-2"></a>
-                <a class="carousel-item" href="#"><img src="assets/shoes.jpg" alt="2-3"></a>
+            <div class="carousel carousel1" id="carousel4">
+                
             </div>
         </div>
 
@@ -436,6 +291,6 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- Подключаем пользовательский скрипт main.js -->
-    <script src="scripts/main.js"></script>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

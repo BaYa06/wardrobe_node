@@ -317,7 +317,7 @@ body {
 /* right main content */
 .row {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     margin-top: 50px;
 }
