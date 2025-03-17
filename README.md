@@ -42,40 +42,41 @@ Wardrobe App is a web application for managing your wardrobe with features like 
    git clone https://github.com/BaYa06/wardrobe_node.git
    cd wardrobe-app
 
-wardrobe-app/
-├── controllers/        # Controllers (handle request logic)
-│   ├── authController.js      # Handles user authentication (login, registration)
-│   ├── weatherController.js   # Fetches weather data and processes recommendations
-│   ├── clothesController.js   # Manages clothing data
-│
-├── middleware/         # Middleware (authentication, validation)
-│   ├── authMiddleware.js     # Middleware for authentication
-│   ├── validationMiddleware.js # Middleware for request validation
-│
-├── models/            # Database models (users, weather, clothing)
-│   ├── user.js         # User model (MongoDB schema)
-│   ├── weather.js      # Weather model (storing weather data if needed)
-│   ├── clothes.js      # Clothes model (storing clothing options)
-│
-├── routes/            # API routes (authentication, registration, weather data)
-│   ├── auth.js         # Routes for login, registration
-│   ├── weather.js      # Routes for fetching weather data
-│   ├── clothes.js      # Routes for clothing selection
-│
-├── public/            # Static files (CSS, JS, images, etc.)
-│   ├── css/           # Stylesheets
-│   ├── js/            # JavaScript files
-│   ├── images/        # Uploaded images
-│
-├── views/             # Frontend views (if using a templating engine)
-│   ├── index.html     # Main webpage
-│   ├── login.html     # Login page
-│   ├── register.html  # Registration page
-│
-├── config/            # Configuration files
-│   ├── db.js          # Database configuration
-│   ├── config.js      # Other project settings
-│
-├── server.js          # Main server file (Node.js and Express setup)
-├── package.json       # Project dependencies
-├── package-lock.json  # Dependency lock file
+    ```bash
+    wardrobe-app/
+    ├── controllers/        # Controllers (handle request logic)
+    │   ├── authController.js      # Handles user authentication (login, registration)
+    │   ├── weatherController.js   # Fetches weather data and processes recommendations
+    │   ├── clothesController.js   # Manages clothing data
+    │
+    ├── middleware/         # Middleware (authentication, validation)
+    │   ├── authMiddleware.js     # Middleware for authentication
+    │   ├── validationMiddleware.js # Middleware for request validation
+    │
+    ├── models/            # Database models (users, weather, clothing)
+    │   ├── user.js         # User model (MongoDB schema)
+    │   ├── weather.js      # Weather model (storing weather data if needed)
+    │   ├── clothes.js      # Clothes model (storing clothing options)
+    │
+    ├── routes/            # API routes (authentication, registration, weather data)
+    │   ├── auth.js         # Routes for login, registration
+    │   ├── weather.js      # Routes for fetching weather data
+    │   ├── clothes.js      # Routes for clothing selection
+    │
+    ├── public/            # Static files (CSS, JS, images, etc.)
+    │   ├── css/           # Stylesheets
+    │   ├── js/            # JavaScript files
+    │   ├── images/        # Uploaded images
+    │
+    ├── views/             # Frontend views (if using a templating engine)
+    │   ├── index.html     # Main webpage
+    │   ├── login.html     # Login page
+    │   ├── register.html  # Registration page
+    │
+    ├── config/            # Configuration files
+    │   ├── db.js          # Database configuration
+    │   ├── config.js      # Other project settings
+    │
+    ├── server.js          # Main server file (Node.js and Express setup)
+    ├── package.json       # Project dependencies
+    ├── package-lock.json  # Dependency lock file
