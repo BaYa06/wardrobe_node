@@ -42,7 +42,7 @@ Wardrobe App is a web application for managing your wardrobe with features like 
    git clone https://github.com/BaYa06/wardrobe_node.git
    cd wardrobe-app
 
-    ```bash
+```bash
     wardrobe-app/
     ├── controllers/        # Controllers (handle request logic)
     │   ├── authController.js      # Handles user authentication (login, registration)
