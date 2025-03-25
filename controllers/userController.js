@@ -8,6 +8,7 @@ export default class UserController {
       ctx.body = students;
       ctx.status = 200;
     } catch (error) {
+      console.error(error);
       ctx.status = 500;
       ctx.body = { error: 'Не удалось получить список студентов' };
     }

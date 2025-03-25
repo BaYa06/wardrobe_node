@@ -183,7 +183,7 @@
                 <button class="close_button">-></button>
                 <button class="open_button"><-</button>
             </div>
-            <div class="welcome_text">
+            <div class="welcome_text" id="welcome_text">
                 <h6 id="Name_of_user">MY Wardrobe</h6>
             </div>
             <hr>
@@ -238,7 +238,7 @@
         </div>
         
         <!-- Контейнер для каруселей -->
-        <div class="carousels">
+        <div class="carousels" id="carousels">
             <!-- Первая карусель (верхняя одежда) -->
             <div class="carousel carousel2" id="carousel1">
                 <!-- Элемент карусели с изображением -->
@@ -262,7 +262,7 @@
         </div>
 
         <!-- Кнопка "Pick Up" с анимацией -->
-        <div class="button">
+        <div class="button" id="pick-button">
             <button class="animated-button">
                 <!-- Стрелка влево (анимация при наведении) -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
@@ -291,6 +291,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- Подключаем пользовательский скрипт main.js -->
+    <script type="module" src="scripts/weather.js"></script>
     <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

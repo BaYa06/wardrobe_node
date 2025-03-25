@@ -17,4 +17,23 @@ export default class UserModel {
   static async getStudents() {
     return db('users').select('*');
   }
+
+  static async addToken({ user_id, token }) {
+    return db('sessions').insert({ user_id, token });
+  }
+
+  static async dellToken(token) {
+    return db('sessions').where({ token }).del();
+  }
+
+  static async getToken(token) {
+    return db('sessions').where({ token });
+  }
+
+  static async getUserIdFromToken() {
+    const user = await db('users').where({ id: ctx.state.userId }).first();
+    return user.user_id;
+  }
+
 }
+

@@ -51,57 +51,25 @@ cards.forEach(card => {
     });
 });
 
-
-
-// Carousel
-$(document).ready(function(){
-    // Инициализация первой карусели
-    $('.carousel1').carousel({
-        fullWidth: false,
-    });
-    // Инициализация первой карусели
-    $('.carousel2').carousel({
-        fullWidth: false,
-    });
-    // Автопрокрутка первой карусели
-    // setInterval(() => {
-    //     $('.carousel1').carousel('next');
-    // }, 3000);
-});
-
-
-// Take username from JWT token
-function getUsername() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        return null;
-    }
-
+// Функция для получения токена и user_id с сервера
+async function fetchUserData() {
     try {
-        const payloadBase64 = token.split('.')[1];
-        const payloadJson = atob(payloadBase64);
-        const payload = JSON.parse(payloadJson);
-
-        return payload.username;
+      const response = await fetch('/api/get-user', {
+        method: 'GET',
+        credentials: 'include', // Отправляем httpOnly куки
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Failed to fetch user data: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      return { token: data.token, userId: data.userId, username: data.user };
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      return null;
     }
-    catch (error) {
-        console.error('Error:', error);
-        return null;
-    }
-}
-
-// 📌 Выводим имя пользователя в консоль
-const username = getUsername();
-console.log('Username:', username);
-
-// 📌 Выводим имя пользователя на страниц
-if (username) {
-    document.getElementById('Name_of_user').textContent = username;
-}
-
-
-
-const ID_USER = 13; // 📌 Идентификатор пользователя
+  }
 
 // Функция ограничения ввода
 function restrictInput(input, datalistId) {
@@ -121,7 +89,57 @@ function restrictInput(input, datalistId) {
 }
 
 // Основная логика
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    const userData = await fetchUserData();
+
+    const username = userData['username'];
+
+    // 📌 Выводим имя пользователя на страниц
+    if (username) {
+        // document.getElementById('Name_of_user').textContent = username;
+
+        const welcome = document.getElementById('welcome_text');
+        welcome.innerHTML = '';
+
+        const welcome_div = document.createElement('div');
+        welcome_div.classList.add('welcome_div');
+        welcome_div.id = 'welcome_div';
+
+        const welcome_button_div = document.createElement('div');
+        welcome_button_div.classList.add('welcome_button_div');
+        welcome_button_div.id = 'welcome_button_div';
+
+        const welcome_text_div = document.createElement('div');
+        welcome_text_div.classList.add('welcome_text_div');
+        welcome_text_div.id = 'welcome_text_div';
+
+        const welcome_text = document.createElement('h6');
+        welcome_text.classList.add('welcome_text');
+        welcome_text.id = 'Name_of_user';
+        welcome_text.textContent = `Welcome, ${username}`;
+
+        const logout_button = document.createElement('button');
+        logout_button.classList.add('register_button');
+        logout_button.id = 'logout_button';
+        logout_button.textContent = 'Logout';
+
+        welcome.appendChild(welcome_div);
+        welcome_div.appendChild(welcome_text_div);
+        welcome_div.appendChild(welcome_button_div);
+        welcome_text_div.appendChild(welcome_text);
+        welcome_button_div.appendChild(logout_button);
+
+        document.getElementById('logout_button')?.addEventListener('click', async function(event) {
+            event.preventDefault();
+            
+            await fetch('/api/logout', { method: 'POST' });
+            window.location.href = '/login.html';
+        });
+    }
+
+    const ID_USER = userData['userId'];
+
+
     const modal = document.getElementById('myModal');
     const openBtns = document.querySelectorAll('.adding_button');
     const submitBtn = document.getElementById('submitModal');
@@ -349,32 +367,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 carousel4.appendChild(carouselItem);
             });
 
-            // Инициализация карусели после добавления элементов
-            M.Carousel.init(carousel1, {
-                fullWidth: false,
-                indicators: true,
-                duration: 200
-            });
-
-            // Инициализация карусели после добавления элементов
-            M.Carousel.init(carousel2, {
-                fullWidth: false,
-                indicators: true,
-                duration: 200
-            });
-
-            // Инициализация карусели после добавления элементов
-            M.Carousel.init(carousel3, {
-                fullWidth: false,
-                indicators: true,
-                duration: 200
-            });
-
-            // Инициализация карусели после добавления элементов
-            M.Carousel.init(carousel4, {
-                fullWidth: false,
-                indicators: true,
-                duration: 200
+            // Carousel
+            $(document).ready(function(){
+                // Инициализация первой карусели
+                $('.carousel1').carousel({
+                    fullWidth: false,
+                });
+                // Инициализация первой карусели
+                $('.carousel2').carousel({
+                    fullWidth: false,
+                });
             });
 
         } catch (err) {

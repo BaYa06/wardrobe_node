@@ -8,8 +8,8 @@ body {
     height: 100%;
     background: -moz-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
     background: -webkit-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
-    background: linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cd2ac8",endColorstr="#7c33f6",GradientType=1);
+    /* background: linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%); */
+    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cd2ac8",endColorstr="#7c33f6",GradientType=1); */
     padding-bottom: 20px;
 }
 
@@ -304,10 +304,12 @@ body {
     padding: 20px;
 }
 
-.welcome_text {
-    display: flex;
-    text-align: center;
-    justify-content: center;
+#logout_button {
+    display: none;
+}
+
+.header_right.open #logout_button {
+    display: block;
 }
 
 .welcome_text h6 {
@@ -438,6 +440,55 @@ body {
 .main-content {
     padding: 20px 20px 20px;
     height: 100%;
+}
+
+.register_button_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.register_button {
+    margin: auto;
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: #405cf5;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+    font-size: 100%;
+    height: 44px;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s,box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.welcome_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcome_text_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    margin: auto 0;
 }
 
 /* Блок с рекомендациями */
@@ -705,6 +756,7 @@ body {
 
   .modal-close-button {
     height: 30px;
+    cursor: pointer;
   }
 
   .modal-close-icon {

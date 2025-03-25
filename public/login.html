@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,8 @@
     <div class="form-container">
         <div class="form-col">
             <div class="button-box">
-                <button class = "button button-1" id="login">Sign In</button>
-                <button class = "button button-2" id="register">Sign Up</button>
+                <button class="button button-1" id="login">Sign In</button>
+                <button class="button button-2" id="register">Sign Up</button>
             </div>
 
             <form class="form-box login-form">
@@ -24,8 +24,8 @@
                         <ion-icon name="person-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="password" oninput="changeIcon(this.value)" id="loginPassword" class="inputs input-field" placeholder="Password" required>
-                        <ion-icon name="lock-closed-outline" class="icon" id="login-password-icon" onclick="myLoginPassword()"></ion-icon>
+                        <input type="password" id="loginPassword" class="inputs input-field" placeholder="Password" required>
+                        <ion-icon name="lock-closed-outline" class="icon" id="login-password-icon"></ion-icon>
                     </div>
                     <div class="forgot-password">
                         <a href="#">Forgot Password?</a>
@@ -70,8 +70,8 @@
                         <ion-icon name="mail-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="password" oninput="changeIcon(this.value)" id="registerPassword" class="inputs input-field" placeholder="Password" required>
-                        <ion-icon name="lock-closed-outline" class="icon" id="register-password-icon" onclick="myRegisterPassword()"></ion-icon>
+                        <input type="password" id="registerPassword" class="inputs input-field" placeholder="Password" required>
+                        <ion-icon name="lock-closed-outline" class="icon" id="register-password-icon"></ion-icon>
                     </div>
                     <div class="remember-me">
                         <input type="checkbox" id="remember-me-check">
@@ -105,9 +105,7 @@
     </div>
 
     <script src="scripts/script.js"></script>
-
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
 </html>
